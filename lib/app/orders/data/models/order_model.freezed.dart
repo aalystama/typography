@@ -18,11 +18,11 @@ class _$OrderTearOff {
   const _$OrderTearOff();
 
   _Order call(
-      {required String name,
-      required OrderType orderType,
-      required double height,
-      required double width,
-      required double cost}) {
+      {@HiveField(0) required String name,
+      @HiveField(1) required OrderType orderType,
+      @HiveField(2) required double height,
+      @HiveField(3) required double width,
+      @HiveField(4) required double cost}) {
     return _Order(
       name: name,
       orderType: orderType,
@@ -38,10 +38,15 @@ const $Order = _$OrderTearOff();
 
 /// @nodoc
 mixin _$Order {
+  @HiveField(0)
   String get name => throw _privateConstructorUsedError;
+  @HiveField(1)
   OrderType get orderType => throw _privateConstructorUsedError;
+  @HiveField(2)
   double get height => throw _privateConstructorUsedError;
+  @HiveField(3)
   double get width => throw _privateConstructorUsedError;
+  @HiveField(4)
   double get cost => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -53,11 +58,11 @@ abstract class $OrderCopyWith<$Res> {
   factory $OrderCopyWith(Order value, $Res Function(Order) then) =
       _$OrderCopyWithImpl<$Res>;
   $Res call(
-      {String name,
-      OrderType orderType,
-      double height,
-      double width,
-      double cost});
+      {@HiveField(0) String name,
+      @HiveField(1) OrderType orderType,
+      @HiveField(2) double height,
+      @HiveField(3) double width,
+      @HiveField(4) double cost});
 }
 
 /// @nodoc
@@ -107,11 +112,11 @@ abstract class _$OrderCopyWith<$Res> implements $OrderCopyWith<$Res> {
       __$OrderCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name,
-      OrderType orderType,
-      double height,
-      double width,
-      double cost});
+      {@HiveField(0) String name,
+      @HiveField(1) OrderType orderType,
+      @HiveField(2) double height,
+      @HiveField(3) double width,
+      @HiveField(4) double cost});
 }
 
 /// @nodoc
@@ -158,23 +163,29 @@ class __$OrderCopyWithImpl<$Res> extends _$OrderCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 1)
 class _$_Order with DiagnosticableTreeMixin implements _Order {
   _$_Order(
-      {required this.name,
-      required this.orderType,
-      required this.height,
-      required this.width,
-      required this.cost});
+      {@HiveField(0) required this.name,
+      @HiveField(1) required this.orderType,
+      @HiveField(2) required this.height,
+      @HiveField(3) required this.width,
+      @HiveField(4) required this.cost});
 
   @override
+  @HiveField(0)
   final String name;
   @override
+  @HiveField(1)
   final OrderType orderType;
   @override
+  @HiveField(2)
   final double height;
   @override
+  @HiveField(3)
   final double width;
   @override
+  @HiveField(4)
   final double cost;
 
   @override
@@ -219,21 +230,26 @@ class _$_Order with DiagnosticableTreeMixin implements _Order {
 
 abstract class _Order implements Order {
   factory _Order(
-      {required String name,
-      required OrderType orderType,
-      required double height,
-      required double width,
-      required double cost}) = _$_Order;
+      {@HiveField(0) required String name,
+      @HiveField(1) required OrderType orderType,
+      @HiveField(2) required double height,
+      @HiveField(3) required double width,
+      @HiveField(4) required double cost}) = _$_Order;
 
   @override
+  @HiveField(0)
   String get name;
   @override
+  @HiveField(1)
   OrderType get orderType;
   @override
+  @HiveField(2)
   double get height;
   @override
+  @HiveField(3)
   double get width;
   @override
+  @HiveField(4)
   double get cost;
   @override
   @JsonKey(ignore: true)
