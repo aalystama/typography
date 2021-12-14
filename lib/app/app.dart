@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:typography/app/orders/data/blocs/orders_cubit.dart';
+import 'package:typography/injectable/injections.dart';
 import 'package:typography/router/router.gr.dart';
 
 class App extends StatelessWidget {
@@ -8,9 +11,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      routerDelegate: _appRouter.delegate(),
+    return BlocProvider<OrdersCubit>(
+      create: (context) => getIt<OrdersCubit>(),
+      child: MaterialApp.router(
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: _appRouter.delegate(),
+      ),
     );
   }
 }

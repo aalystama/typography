@@ -12,23 +12,26 @@ enum OrderType {
   text,
 }
 
-extension on OrderType {
-  String get toJson {
-    return this.toString().split('.').last;
-  }
-}
-
-extension on String {
-  OrderType get toOrderType {
+extension OrderTypeExtension on OrderType {
+  String get asString {
     switch (this) {
-      case 'bCard':
-        return OrderType.bCard;
-      case 'image':
-        return OrderType.image;
-      case 'text':
-        return OrderType.text;
-      default:
-        throw UnimplementedError();
+      case OrderType.bCard:
+        return 'Визитка';
+      case OrderType.image:
+        return 'Картина';
+      case OrderType.text:
+        return 'Текст';
+    }
+  }
+
+  double get fare {
+    switch (this) {
+      case OrderType.bCard:
+        return 5;
+      case OrderType.image:
+        return 10;
+      case OrderType.text:
+        return 15;
     }
   }
 }

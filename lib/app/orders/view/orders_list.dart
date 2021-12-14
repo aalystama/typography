@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:typography/app/orders/data/models/order_model.dart';
+import 'package:typography/app/orders/data/models/order_type.dart';
 
 class OrdersList extends StatelessWidget {
   final List<Order> orders;
@@ -11,24 +12,46 @@ class OrdersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (orders.isEmpty) {
+      return const Center(
+        child: Text('Заказов нет'),
+      );
+    }
+
     return ListView.separated(
       itemCount: orders.length,
-      separatorBuilder: (c, i) => const SizedBox(height: 16),
-      itemBuilder: (c, i) => Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Row(
-          children: [
-            const CircleAvatar(),
-            Column(
-              children: [
-                Text(orders[i].name),
-                Text(orders[i].cost.toString()),
-              ],
-            ),
-          ],
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      separatorBuilder: (c, i) => const SizedBox(height: 8),
+      itemBuilder: (c, i) => Card(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    orders[i].name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    orders[i].type.asString,
+                  ),
+                  const SizedBox(height: 4),
+                  Text('${orders[i].height} x ${orders[i].width}'),
+                ],
+              ),
+              Text(
+                '${orders[i].cost} тг',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
         ),
       ),
     );

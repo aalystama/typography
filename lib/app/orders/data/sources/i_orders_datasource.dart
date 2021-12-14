@@ -4,4 +4,6 @@ abstract class IOrdersDatasource {
   List<Order> getOrders();
 
   void addOrder(Order order);
+
+  Stream<Order?> get stream;
 }
